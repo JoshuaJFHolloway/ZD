@@ -66,7 +66,7 @@ while still abiding to the SRP.
 
 ## Future Additions
 
-// TBD
+- Use jest-styled-components to test my styled components
 
 ## Screenshots of use!
 
