@@ -6,12 +6,16 @@ import SubHeaderStyle from './styledComponents/subHeader.js'
 const Headers = () => {
   return (
     <div>
-      <Header
-        title={<HeaderStyle>Ned Ned's Cheese Emporium</HeaderStyle>}
-      />
-      <Header role={"img"} aria-label={"emoji"}
-        title={<SubHeaderStyle>Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀</SubHeaderStyle>}
-      />
+      <HeaderStyle>
+        <Header
+          title={"Ned Ned's Cheese Emporium"}
+        />
+      </HeaderStyle>
+      <SubHeaderStyle>
+        <Header role={"img"} aria-label={"emoji"}
+          title={"Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀"}
+        />
+      </SubHeaderStyle>
     </div>
   )
 };
