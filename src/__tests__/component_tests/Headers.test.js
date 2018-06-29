@@ -16,11 +16,11 @@ describe('passing props', () => {
   describe('header Component', () => {
 
     it('has header 1', () => {
-      expect(app.find('Header').at(0).prop('title')).toMatchObject(<styled.h1>Ned Ned's Cheese Emporium</styled.h1>);
+      expect(headers.find('Header').at(0).prop('title')).toBe("Ned Ned's Cheese Emporium");
     });
 
     it('has header 2', () => {
-      expect(app.find('Header').at(1).prop('title')).toMatchObject(<styled.h2>Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀</styled.h2>);
+      expect(headers.find('Header').at(1).prop('title')).toBe("Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀");
       });
     });
   });
