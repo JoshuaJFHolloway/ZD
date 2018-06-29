@@ -67,6 +67,7 @@ while still abiding to the SRP.
 ## Future Additions
 
 - Use jest-styled-components to test my styled components
+- Work out why using 'extend' on styled components didn't work. Would be useful to extend the HeaderStyle for the SubHeaderStyle as it uses many of the same properties.
 
 ## Screenshots of use!
 

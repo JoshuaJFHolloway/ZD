@@ -5,6 +5,7 @@ const SubHeaderStyle = styled.h2 `
   font-weight: normal;
   font-family: Helvetica;
   line-height: 1.5;
+  text-align: center;
 `;
 
 export default SubHeaderStyle;
