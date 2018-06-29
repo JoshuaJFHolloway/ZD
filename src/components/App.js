@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import HeaderStyle from './styledComponents/Header.js'
+import SubHeaderStyle from './styledComponents/subHeader.js'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Ned Ned's Cheese Emporium</h1>
-        </header>
-        <span role={"img"} aria-label={"emoji"} >Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀</span>
+      <div>
+        <Header
+          title={<HeaderStyle>Ned Ned's Cheese Emporium</HeaderStyle>}
+        />
+        <Header role={"img"} aria-label={"emoji"}
+          title={<SubHeaderStyle>Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀</SubHeaderStyle>}
+        />
       </div>
     );
   }
