@@ -35,6 +35,29 @@ class App extends Component {
     return (!!state.cheeseMoney.length);
   }
 
+  getData() {
+    if (this.areParamsValid()) {
+      const params = this.state.params;
+      params["buttonClicked"]= true;
+      console.log("Fetching Data");
+
+      //const request = state.cheeseMoney if passing cheeseMoney value into API
+      fetchData(this.onSuccess, this.onFailure); // request would be in these parentheses
+      this.setState({params});
+    }
+  }
+
+  onSuccess = (response) => {
+    console.log("onSuccess", response);
+    this.setState({results: response.rates});
+    this.buttonClickedFalse()
+  };
+
+  onFailure = (err) => {
+    // handle error messaging
+    console.log("Something has gone wrong...");
+    this.buttonClickedFalse()
+  };
 
   buttonClickedFalse() {
     const params = this.state.params;
