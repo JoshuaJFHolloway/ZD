@@ -46,6 +46,15 @@ describe('App', () => {
         expect(app.instance().state.params.cheeseMoney).toEqual('20');
       });
     });
-  })
+
+    describe('buttonClickedFalse', () => {
+
+      it('updates the buttonClicked state to false', () => {
+        app.instance().buttonClickedFalse();
+        expect(app.instance().state.params.buttonClicked).toBe(false);
+      });
+    })
+  });
+
 
 });
