@@ -30,6 +30,12 @@ class App extends Component {
     }
   }
 
+  areParamsValid() {
+    const state = this.state.params;
+    return (!!state.cheeseMoney.length);
+  }
+
+
   buttonClickedFalse() {
     const params = this.state.params;
     params["buttonClicked"]= false;
