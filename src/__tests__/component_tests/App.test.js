@@ -8,13 +8,37 @@ import {dummyResponse} from '../../utils/mockData/response';
 
 let app;
 
+const handleChangeEvent = {
+  target: {
+    name: 'cheeseMoney',
+    value: '20'
+  }
+};
 
 describe('App', () => {
 
+  let fetchStub;
+  let onSuccessStub;
+  let onFailureStub;
+  let areParamsValidStub;
+
+  beforeAll(() => {
+    fetchStub = sinon.stub(fetchUtils, "fetchData");
+  });
 
   beforeEach(() => {
     app = shallow(<App/>);
 
+    onSuccessStub = sinon.stub(app.instance(), "onSuccess");
+    onFailureStub = sinon.stub(app.instance(), "onFailure");
+  });
+
+  afterEach(() => {
+    fetchStub.reset();
+  });
+
+  afterAll(() => {
+    fetchStub.restore();
   });
 
   it('renders correctly', () => {
@@ -68,6 +92,25 @@ describe('App', () => {
     })
   });
 
+  describe('Getting data', () => {
+    it('should call the fetch stub once', () => {
+      areParamsValidStub = sinon.stub(app.instance(), "areParamsValid");
+      areParamsValidStub.returns(true);
+      app.instance().getData();
+      expect(fetchStub.calledOnce).toBe(true);
+    });
+  });
 
+  // describe('Getting data', () => {
+  //   it('etc', () => {
+  //     fetchStub.returns(dummyResponse);
+  //     areParamsValidStub.returns(true);
+  //
+  //     app.instance().getData();
+  //
+  //     expect(fetchStub).toBeCalled();
+  //     expect(onSuccessStub).toBeCalled();
+  //   });
+  // });
 
 });
