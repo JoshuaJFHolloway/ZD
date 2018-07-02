@@ -13,7 +13,7 @@ const Headers = () => {
       </HeaderStyle>
       <SubHeaderStyle>
         <Header role={"img"} aria-label={"emoji"}
-          title={"Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀"}
+          title={"Today you can buy 12 blocks of cheese for £35 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀"}
         />
       </SubHeaderStyle>
     </div>
