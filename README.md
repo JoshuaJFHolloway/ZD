@@ -76,7 +76,11 @@ cheese for you. This wouldn't be too difficult and I'll do it later today.
 
 ## Screenshots of use!
 
-<a href="" border="0"></a>
+<a href="https://ibb.co/jp8DZy"><img src="https://preview.ibb.co/bNbNSJ/ZD.png" alt="ZD" border="0"></a>
+
+Before you click the button it has default text saying that the number of cheeses you can afford will appear here.
+Then after clicking it changes to the cheese after the conversion. Entering in anything other than numbers
+will not run the fetch.
 
 ## Contributors
 
