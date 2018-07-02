@@ -56,5 +56,18 @@ describe('App', () => {
     })
   });
 
+  describe('areParamsValid', () => {
+
+    it('should return false if cheeseMoney is false', () => {
+      expect(app.instance().areParamsValid()).toEqual(false);
+    });
+
+    it('should return true if cheeseMoney has a value', () => {
+      app.instance().state.params.cheeseMoney = '30';
+      expect(app.instance().areParamsValid()).toEqual(true);
+    })
+  });
+
+
 
 });
