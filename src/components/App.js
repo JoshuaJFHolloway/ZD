@@ -30,6 +30,11 @@ class App extends Component {
     }
   }
 
+  buttonClickedFalse() {
+    const params = this.state.params;
+    params["buttonClicked"]= false;
+    this.setState({params});
+  };
 
   render() {
     return (
