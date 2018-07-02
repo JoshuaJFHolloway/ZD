@@ -70,7 +70,7 @@ class App extends Component {
       <div>
         <Headers/>
         <div>
-
+          <TwoColumnStyle>
             <InputsHolder
               handleClick={this.getData}
               handleChange={this.handleChange}
@@ -79,12 +79,12 @@ class App extends Component {
               buttonName={"Convert GBP to cheese"}
               title={"Enter in your amount in GBP"}
             />
-
-
+          </TwoColumnStyle>
+          <TwoColumnStyle>
             <ResultsHolder
               state={this.state}
             />
-
+          </TwoColumnStyle>
         </div>
       </div>
     );
