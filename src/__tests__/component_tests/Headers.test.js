@@ -11,7 +11,7 @@ describe('Headers', () => {
     expect(Headers).toMatchSnapshot();
   });
 
-describe('passing props', () => {
+describe('rendering components', () => {
 
   describe('header Component', () => {
 
@@ -20,7 +20,7 @@ describe('passing props', () => {
     });
 
     it('has header 2', () => {
-      expect(headers.find('Header').at(1).prop('title')).toBe("Today you can buy 12 blocks of cheese for £19.99 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀");
+      expect(headers.find('Header').at(1).prop('title')).toBe("Today you can buy 12 blocks of cheese for £35 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀");
       });
     });
   });
