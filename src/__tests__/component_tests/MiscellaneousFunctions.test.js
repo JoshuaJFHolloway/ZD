@@ -17,7 +17,7 @@ describe('Results', () => {
     it('returns the division of EUR and GBP rates in the dummyResponse', () => {
       console.log("this is props");
       console.log(props);
-      expect(currencyConverter(props)).toEqual(0.85459/0.757215)
+      expect(currencyConverter(props.results.rates)).toEqual(0.85459/0.757215)
     });
   });
 

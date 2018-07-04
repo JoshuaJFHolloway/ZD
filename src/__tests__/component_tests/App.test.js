@@ -65,19 +65,10 @@ describe('App', () => {
     describe('handleChange', () => {
 
       it('updates the state correctly depending on the event.target', () => {
-        app.instance().state.params.buttonClicked = true;
         app.instance().handleChange(handleChangeEvent);
-        expect(app.instance().state.params.cheeseMoney).toEqual('20');
+        expect(app.instance().state.cheeseMoney).toEqual('20');
       });
     });
-
-    describe('buttonClickedFalse', () => {
-
-      it('updates the buttonClicked state to false', () => {
-        app.instance().buttonClickedFalse();
-        expect(app.instance().state.params.buttonClicked).toBe(false);
-      });
-    })
   });
 
   describe('areParamsValid', () => {
@@ -87,7 +78,7 @@ describe('App', () => {
     });
 
     it('should return true if cheeseMoney has a value', () => {
-      app.instance().state.params.cheeseMoney = '30';
+      app.instance().state.cheeseMoney = '30';
       expect(app.instance().areParamsValid()).toEqual(true);
     })
   });
