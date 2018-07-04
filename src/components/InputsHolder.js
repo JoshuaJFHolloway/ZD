@@ -12,10 +12,13 @@ const InputsHolder = (props) => {
           title={props.title}
         />
       </InputTitleStyle>
+
       <InputStyle
         type={props.type}
         name={props.inputName}
-        onChange={props.handleChange}/>
+        onChange={props.handleChange}
+      />
+
       <ButtonStyle
         name={props.buttonName}
         onClick={props.handleClick}
