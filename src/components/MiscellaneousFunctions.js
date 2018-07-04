@@ -1,4 +1,4 @@
-function currencyConverter(rates) {
+export function currencyConverter(rates) {
   const { GBP, EUR } = rates;
   let convertedCurrency = null;
 
