@@ -1,68 +1,57 @@
 import React, { Component } from 'react';
+
 import Headers from './Headers';
 import InputsHolder from './InputsHolder';
 import ResultsHolder from './ResultsHolder';
-import {fetchData} from '../utils/fetchData';
+
 import TwoColumnStyle from './styledComponents/TwoColumns';
+
+import {fetchData} from '../utils/fetchData';
+import {cheeseBlockCalculator} from "./MiscellaneousFunctions";
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      params: {
-        cheeseMoney: false,
-        buttonClicked: false,
-      },
-      results: {},
+        cheeseMoney: '',
+        amountOfCheese: 0,
+        rates: undefined,
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.getData = this.getData.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
-    const params = this.state.params;
+    const state = this.state;
 
-      params[name]= value;
-
-    if (params.buttonClicked) {
-      this.setState({params})
-    }
+      state[name]= value;
+      this.setState({state})
   }
 
   areParamsValid() {
-    const state = this.state.params;
-    return (!!state.cheeseMoney.length);
+    const {cheeseMoney} = this.state;
+    return (!!cheeseMoney.length);
   }
 
   getData() {
     if (this.areParamsValid()) {
-      const params = this.state.params;
-      params["buttonClicked"]= true;
-      console.log("Fetching Data");
-
-      //const request = state.cheeseMoney if passing cheeseMoney value into API
-      fetchData(this.onSuccess, this.onFailure); // request would be in these parentheses
-      this.setState({params});
+      fetchData(this.onSuccess, this.onFailure);
     }
   }
 
   onSuccess = (response) => {
-    console.log("onSuccess", response);
-    this.setState({results: response.rates});
-    this.buttonClickedFalse()
+    const cheeseBlocks = cheeseBlockCalculator(this.state.cheeseMoney, response.rates);
+    this.setState({
+      rates: response.rates,
+      amountOfCheese: cheeseBlocks,
+    });
   };
 
-  onFailure = (err) => {
+  onFailure = (error) => {
     // handle error messaging
-    console.log("Something has gone wrong...");
-    this.buttonClickedFalse()
-  };
-
-  buttonClickedFalse() {
-    const params = this.state.params;
-    params["buttonClicked"]= false;
-    this.setState({params});
+    console.log("Something has gone wrong...", error);
   };
 
   render() {
@@ -74,15 +63,15 @@ class App extends Component {
             <InputsHolder
               handleClick={this.getData}
               handleChange={this.handleChange}
-              type={"number"}
-              inputName={"cheeseMoney"}
-              buttonName={"Convert GBP to cheese"}
-              title={"Enter in your amount in GBP"}
+              type="number"
+              inputName="cheeseMoney"
+              buttonName="Convert GBP to cheese"
+              title="Enter in your amount in GBP"
             />
           </TwoColumnStyle>
           <TwoColumnStyle>
             <ResultsHolder
-              state={this.state}
+              amountOfCheese={this.state.amountOfCheese}
             />
           </TwoColumnStyle>
         </div>
