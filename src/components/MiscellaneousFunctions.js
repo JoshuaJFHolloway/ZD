@@ -1,19 +1,20 @@
-export function currencyConverter(state) {
-  console.log("this is state");
-  console.log(state);
-  const rates = state.results;
-  const GBP = rates.GBP;
-  console.log("this is rates");
-  console.log(rates);
-  const EUR = rates.EUR;
-  console.log(EUR);
+function currencyConverter(rates) {
+  const { GBP, EUR } = rates;
+  let convertedCurrency = null;
 
-  return EUR / GBP;
+  if (rates) {
+    console.log("Rates:", rates);
+    console.log("EUR", EUR);
+    console.log("GBP", GBP);
+
+    convertedCurrency = EUR / GBP;
+  }
+
+  return convertedCurrency;
 }
 
-export function cheeseBlockCalculator(state) {
-  const cheeseMoney = state.params.cheeseMoney;
-  const euros = currencyConverter(state) * cheeseMoney;
+export function cheeseBlockCalculator(amount, rates) {
+  const euros = currencyConverter(rates) * amount;
   const cheeseBlock = 3.24;
 
   return euros / cheeseBlock;
