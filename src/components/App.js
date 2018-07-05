@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Headers from './Headers';
 import InputsHolder from './InputsHolder';
 import ResultsHolder from './ResultsHolder';
+import Flag from './Flag';
+import Japan from './../images/Japan.jpg';
+import GB from './../images/GB.svg.png'
 
 import TwoColumnStyle from './styledComponents/TwoColumns';
 
@@ -16,10 +19,14 @@ class App extends Component {
         cheeseMoney: '',
         amountOfCheese: 0,
         rates: undefined,
+        GB: false,
+        Japan: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.getData = this.getData.bind(this);
+    this.toggleGB = this.toggleGB.bind(this);
+    this.toggleJapan = this.toggleJapan.bind(this);
   }
 
   handleChange(event) {
@@ -29,6 +36,17 @@ class App extends Component {
       state[name]= value;
       this.setState({state})
   }
+
+  toggleGB() {
+    const currentState = this.state.GB;
+    this.setState({ GB: !currentState });
+  };
+
+  toggleJapan() {
+    const currentState = this.state.Japan;
+    this.setState({ Japan: !currentState });
+  };
+
 
   areParamsValid() {
     const {cheeseMoney} = this.state;
@@ -57,9 +75,15 @@ class App extends Component {
   };
 
   render() {
-    return (
+
+    const currency = this.state.GB ? "£" : "¥";
+
+
+    return (this.state.GB || this.state.Japan) ? (
       <div>
-        <Headers/>
+        <Headers
+          currency = {currency}
+        />
         <div>
           <TwoColumnStyle>
             <InputsHolder
@@ -78,7 +102,20 @@ class App extends Component {
           </TwoColumnStyle>
         </div>
       </div>
-    );
+    ) : (
+      <div>
+        <Flag
+          image={Japan}
+          name={"Japan"}
+          onClick={this.toggleJapan}
+        />
+        <Flag
+          image={GB}
+          name={"GB"}
+          onClick={this.toggleGB}
+        />
+      </div>
+    )
   }
 }
 

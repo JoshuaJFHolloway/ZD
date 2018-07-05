@@ -60,6 +60,11 @@ describe('App', () => {
       it('has ResultsHolder', () => {
         expect(app.find('ResultsHolder'));
       });
+
+      it('has two flag components', () => {
+        expect(app.find('Flag').at(0).prop('name')).toBe("Japan");
+        expect(app.find('Flag').at(1).prop('name')).toBe("GB");
+      })
   });
 
   describe('Initializes state', () => {
@@ -75,6 +80,14 @@ describe('App', () => {
     it('initializes rates state as undefined', () => {
       expect(app.state('rates')).toEqual(undefined);
     });
+
+    it('initializes GB state as false', () => {
+      expect(app.state('GB')).toEqual(false);
+    });
+
+    it('initializes Japan state as false', () => {
+      expect(app.state('Japan')).toEqual(false);
+    });
   });
 
   describe('Updating state successfully', () => {
@@ -84,6 +97,16 @@ describe('App', () => {
       it('updates the state correctly depending on the event.target', () => {
         app.instance().handleChange(handleChangeEvent);
         expect(app.instance().state.cheeseMoney).toEqual('20');
+      });
+
+      it('updates the state of GB to true if clicked', () => {
+        app.instance().toggleGB();
+        expect(app.instance().state.GB).toEqual(true)
+      });
+
+      it('updates the state of Japan to true if clicked', () => {
+        app.instance().toggleJapan();
+        expect(app.instance().state.Japan).toEqual(true)
       });
     });
   });

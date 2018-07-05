@@ -20,6 +20,18 @@ ShallowWrapper {
       "children": Array [
         <Headers />,
         <div>
+          <div>
+                    <Flag
+                              image="Japan.jpg"
+                              name="Japan"
+                              onClick={[Function]}
+                    />
+                    <Flag
+                              image="GB.svg.png"
+                              name="GB"
+                              onClick={[Function]}
+                    />
+          </div>
           <styled.h3>
                     <InputsHolder
                               buttonName="Convert GBP to cheese"
@@ -55,6 +67,18 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <div>
+              <Flag
+                            image="Japan.jpg"
+                            name="Japan"
+                            onClick={[Function]}
+              />
+              <Flag
+                            image="GB.svg.png"
+                            name="GB"
+                            onClick={[Function]}
+              />
+</div>,
             <styled.h3>
               <InputsHolder
                             buttonName="Convert GBP to cheese"
@@ -74,6 +98,55 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Flag
+                  image="Japan.jpg"
+                  name="Japan"
+                  onClick={[Function]}
+/>,
+                <Flag
+                  image="GB.svg.png"
+                  name="GB"
+                  onClick={[Function]}
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "image": "Japan.jpg",
+                  "name": "Japan",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "image": "GB.svg.png",
+                  "name": "GB",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -145,6 +218,18 @@ ShallowWrapper {
         "children": Array [
           <Headers />,
           <div>
+            <div>
+                        <Flag
+                                    image="Japan.jpg"
+                                    name="Japan"
+                                    onClick={[Function]}
+                        />
+                        <Flag
+                                    image="GB.svg.png"
+                                    name="GB"
+                                    onClick={[Function]}
+                        />
+            </div>
             <styled.h3>
                         <InputsHolder
                                     buttonName="Convert GBP to cheese"
@@ -180,6 +265,18 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
+              <div>
+                <Flag
+                                image="Japan.jpg"
+                                name="Japan"
+                                onClick={[Function]}
+                />
+                <Flag
+                                image="GB.svg.png"
+                                name="GB"
+                                onClick={[Function]}
+                />
+</div>,
               <styled.h3>
                 <InputsHolder
                                 buttonName="Convert GBP to cheese"
@@ -199,6 +296,55 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Flag
+                    image="Japan.jpg"
+                    name="Japan"
+                    onClick={[Function]}
+/>,
+                  <Flag
+                    image="GB.svg.png"
+                    name="GB"
+                    onClick={[Function]}
+/>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "image": "Japan.jpg",
+                    "name": "Japan",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "image": "GB.svg.png",
+                    "name": "GB",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
             Object {
               "instance": null,
               "key": undefined,
