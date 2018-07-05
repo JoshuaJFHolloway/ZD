@@ -3,8 +3,9 @@ import {shallow} from 'enzyme';
 import App from './../../components/App';
 import sinon from 'sinon';
 
+import * as MiscellaneousFunctions from '../../components/MiscellaneousFunctions';
 import * as fetchUtils from '../../utils/fetchData';
-import {dummyResponse} from '../../utils/mockData/response';
+import {rates} from '../../utils/mockData/response';
 
 let app;
 
@@ -15,12 +16,17 @@ const handleChangeEvent = {
   }
 };
 
+const response = {
+  rates: rates
+};
+
 describe('App', () => {
 
   let fetchStub;
   let onSuccessStub;
   let onFailureStub;
   let areParamsValidStub;
+  let cheeseBlockCalculatorStub;
 
   beforeAll(() => {
     fetchStub = sinon.stub(fetchUtils, "fetchData");
@@ -60,6 +66,21 @@ describe('App', () => {
       });
   });
 
+  describe('Initializes state', () => {
+
+    it("initializes cheeseMoney state as '' ", () => {
+      expect(app.state('cheeseMoney')).toEqual('');
+    });
+
+    it('initializes amountOfCheese state as 0', () => {
+      expect(app.state('amountOfCheese')).toEqual(0);
+    });
+
+    it('initializes rates state as undefined', () => {
+      expect(app.state('rates')).toEqual(undefined);
+    });
+  });
+
   describe('Updating state successfully', () => {
 
     describe('handleChange', () => {
@@ -73,7 +94,8 @@ describe('App', () => {
 
   describe('areParamsValid', () => {
 
-    it('should return false if cheeseMoney is false', () => {
+    it('should return false if cheeseMoney has no length', () => {
+      app.instance().state.cheeseMoney = '';
       expect(app.instance().areParamsValid()).toEqual(false);
     });
 
@@ -92,16 +114,14 @@ describe('App', () => {
     });
   });
 
-  // describe('Getting data', () => {
-  //   it('etc', () => {
-  //     fetchStub.returns(dummyResponse);
-  //     areParamsValidStub.returns(true);
-  //
-  //     app.instance().getData();
-  //
-  //     expect(fetchStub).toBeCalled();
-  //     expect(onSuccessStub).toBeCalled();
-  //   });
-  // });
+  describe('onSuccess', () => {
+    it('should update the state with the rates and amount of cheese', () => {
+      cheeseBlockCalculatorStub = sinon.stub(MiscellaneousFunctions, 'cheeseBlockCalculator');
+      cheeseBlockCalculatorStub.returns(10);
+      app.instance().onSuccess(response);
+      expect(cheeseBlockCalculatorStub.calledOnce).toBe(true);
+      expect(app.instance().state.amountOfCheese).toEqual(10);
+    })
+  });
 
 });
