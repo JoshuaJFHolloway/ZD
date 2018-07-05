@@ -43,10 +43,6 @@ describe('App', () => {
     fetchStub.reset();
   });
 
-  afterAll(() => {
-    fetchStub.restore();
-  });
-
   it('renders correctly', () => {
     expect(app).toMatchSnapshot();
   });

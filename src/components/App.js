@@ -36,6 +36,8 @@ class App extends Component {
   }
 
   getData() {
+    //body = a state which was inputted by user as an object
+    //const request = JSON.stringify(body);
     if (this.areParamsValid()) {
       fetchData(this.onSuccess, this.onFailure);
     }
