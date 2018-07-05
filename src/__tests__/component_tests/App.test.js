@@ -16,21 +16,6 @@ const handleChangeEvent = {
   }
 };
 
-const GBEvent = {
-  target: {
-    name: "GB",
-    value: true
-  }
-};
-
-const JapanEvent = {
-  target: {
-    name: "Japan",
-    value: true
-  }
-};
-
-
 const response = {
   rates: rates
 };
@@ -81,8 +66,8 @@ describe('App', () => {
       });
 
       it('has two flag components', () => {
-        expect(app.find('Flag')).at(0).prop('name').toBe("Japan");
-        expect(app.find('Flag')).at(1).prop('name').toBe("GB");
+        expect(app.find('Flag').at(0).prop('name')).toBe("Japan");
+        expect(app.find('Flag').at(1).prop('name')).toBe("GB");
       })
   });
 
@@ -119,12 +104,12 @@ describe('App', () => {
       });
 
       it('updates the state of GB to true if clicked', () => {
-        app.instance().handleChange(GBEvent);
+        app.instance().toggleGB();
         expect(app.instance().state.GB).toEqual(true)
       });
 
       it('updates the state of Japan to true if clicked', () => {
-        app.instance().handleChange(JapanEvent);
+        app.instance().toggleJapan();
         expect(app.instance().state.Japan).toEqual(true)
       });
     });

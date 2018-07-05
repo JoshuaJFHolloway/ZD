@@ -3,7 +3,8 @@ import Header from './Header';
 import HeaderStyle from './styledComponents/Header.js'
 import SubHeaderStyle from './styledComponents/subHeader.js'
 
-const Headers = () => {
+const Headers = (props) => {
+
   return (
     <div>
       <HeaderStyle>
@@ -13,8 +14,8 @@ const Headers = () => {
       </HeaderStyle>
       <SubHeaderStyle>
         <Header role={"img"} aria-label={"emoji"}
-          title={"Today you can buy 12 blocks of cheese for £35 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀"}
-        />
+          title={`Today you can buy 12 blocks of cheese for ${props.currency}35 🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀🧀`}
+       />
       </SubHeaderStyle>
     </div>
   )

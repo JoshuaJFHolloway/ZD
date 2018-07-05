@@ -73,22 +73,16 @@ class App extends Component {
   };
 
   render() {
-    return (
+
+    const currency = this.state.GB ? "£" : "¥";
+
+
+    return (this.state.GB || this.state.Japan) ? (
       <div>
-        <Headers/>
+        <Headers
+          currency = {currency}
+        />
         <div>
-          <div>
-            <Flag
-              image={Japan}
-              name={"Japan"}
-              onClick={this.toggleJapan}
-            />
-            <Flag
-              image={GB}
-              name={"GB"}
-              onClick={this.toggleGB}
-            />
-          </div>
           <TwoColumnStyle>
             <InputsHolder
               handleClick={this.getData}
@@ -106,7 +100,20 @@ class App extends Component {
           </TwoColumnStyle>
         </div>
       </div>
-    );
+    ) : (
+      <div>
+        <Flag
+          image={Japan}
+          name={"Japan"}
+          onClick={this.toggleJapan}
+        />
+        <Flag
+          image={GB}
+          name={"GB"}
+          onClick={this.toggleGB}
+        />
+      </div>
+    )
   }
 }
 
