@@ -40,6 +40,13 @@ React can create a presentable and fast front end.
 - Run 'npm start'
 - Visit 'localhost:3000' in your browser to see the app
 
+## Testing
+
+- To run the tests run 'npm t'
+- The app has a lot of tests that check the functions and rendering of the application. I did TDD the 
+project to the best of my ability, but my work with stubs and mocks needs to improve. I tried to do
+stub functions wherever possible.
+
 
 ## Approach
 
@@ -68,11 +75,10 @@ while still abiding to the SRP.
 
 - Use jest-styled-components to test my styled components
 - Work out why using 'extend' on styled components didn't work. Would be useful to extend the HeaderStyle for the SubHeaderStyle as it uses many of the same properties.
-- Test the api more and test the ResultsHolder component. I havent had much experience testing a stateless component
-so I ran into a few issues. What I will be doing is either passing props into it in the test and seeing what it returns
-or converting the function expressions into functions that I export and then test that way.
+- Test the api more. I havent had much experience testing a stateless component.
+so I ran into a few issues.
 - I want to create a dropdown box where you can enter the currency you want to pay with and it would convert it into
-cheese for you. This wouldn't be too difficult and I'll do it later today.
+cheese for you. This wouldn't be too difficult so I will do this.
 
 ## Screenshots of use!
 
